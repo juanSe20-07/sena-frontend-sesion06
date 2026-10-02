@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+/* ESTRUCTURA */
+.panel {
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas:
+        "topbar"
+        "menu"
+        "contenido"
+        "pie";
+}
+
+/* HEADER */
+.topbar {
+    grid-area: topbar;
+    background: #7c3aed;
+    padding: 20px;
+    text-align: center;
+}
+
+/* SIDEBAR */
+.menu-lateral {
+    grid-area: menu;
+    background: #1e1b4b;
+    padding: 20px;
+}
+
+.menu-lateral ul {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.menu-lateral li {
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.menu-lateral li:hover {
+    color: #c084fc;
+}
+
+/* CONTENIDO */
+.contenido {
+    grid-area: contenido;
+    padding: 20px;
+}
+
+/* FOOTER */
+.pie {
+    grid-area: pie;
+    background: #7c3aed;
+    text-align: center;
+    padding: 15px;
+}
+
+/* TARJETAS */
+.tarjetas {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.tarjeta {
+    background: #1e293b;
+    padding: 15px;
+    border-radius: 12px;
+    display: grid;
+    grid-template-areas:
+        "img img"
+        "titulo etiqueta"
+        "desc desc"
+        "btn btn";
+    gap: 12px;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.3);
+}
+
+.imagen {
+    grid-area: img;
+    height: 140px;
+    background: #9333ea;
+    border-radius: 8px;
+}
+
+.titulo {
+    grid-area: titulo;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.etiqueta {
+    grid-area: etiqueta;
+    background: #ec4899;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    justify-self: end;
+}
+
+.tarjeta p {
+    grid-area: desc;
+    color: #cbd5f5;
+}
+
+.tarjeta button {
+    grid-area: btn;
+    padding: 10px;
+    border: none;
+    background: #7c3aed;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.tarjeta button:hover {
+    background: #a78bfa;
+}
+
+/* RESPONSIVE */
+@media (min-width: 768px) {
+    .panel {
+        grid-template-areas:
+            "topbar topbar"
+            "menu contenido"
+            "pie pie";
+        grid-template-columns: 220px 1fr;
+    }
+
+    .tarjetas {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+
+    .principal {
+        grid-column: span 2;
+    }
+}
+
+.item-menu {
+    display: block;
+    gap: 10px;
+}
